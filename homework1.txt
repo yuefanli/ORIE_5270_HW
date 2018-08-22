@@ -1,0 +1,27 @@
+1. AWS: AWS is the cloud computational resource provided by Amazon. We need to do a lot of computation on remote computer, to level up the efficiency.
+2. Create and launch instances in AWS: log on to aws website, choose Services->Computer->EC2. There are several different features for EC2, like number of CPUs, memory and storage. Choose the appropriate one according to your demand.
+3. Create and Download key pair file: When Create an Instance in AWS, the dialog box will ask you to provide a key pair. This key pair is the identification to let AWS know which exact instance to use. If use different Instance, then all settings will be different. So it is very important to always use the correct key pair. Because this is the first time we use a new instance, we need to create a new key, and download it. I named it as liyuefan.pem, and launch the instance finally.
+4. Connect to AWS by SSH: After receiving the key file, redirect to the filepath it is stored: cd /mnt/c/Users/liyue/Downloads (Here /mnt/ stands for the special requirement from Ubuntu in Win10 as a subsystem). cd means change directory. After this step, we need to change the permission of liyuefan.pem using chmod command in Linux: chmod 400 liyuefan.pem. chmod changes the permission status of file liyuefan.pem, and 400 means "Only owner can read, all other users cannot read, write, and execute the file, and even for owner, he/she cannot write or execute the file too".
+5. ssh -i "liyuefan.pem" ec2-user@ec2-18-217-48-44.us-east-2.compute.amazonaws.com: this command means connect ssh to identification, which is the public DNS copied from AWS instance.
+6. sudo yum install git: install github using yum, and the permission level set to be the root user.
+7. Create account in github. Next steps are designed to enable github ensure that the computer connected to it is account's owner's machine.
+8. ssh-keygen -t rsa -b 4096 -C "yl2772@cornell.edu": This creates a new ssh key using the email as a label, and after that you need to enter new password twice. This password can be anything you want, not necessarily be the same as your password in github.
+9. eval $(ssh-agent -s): This command calls the pid of ssh-agent, thus if ssh-agent is running, then this number wil be valid to see.
+10. ssh-add ~/.ssh/id_rsa: add your ssh private key to the ssh-agent. After this step, we should also add the SSH key to github account, thus github account can check with ssh-agent to see if they both have the same private key.
+11. cd ~/.ssh: Because the clip command on my computer doesn't work, I have to copy the private key from file manually.
+12. vim id_rsa.pub: open the private key file. After that, copy and paste to github->account->settings->SSH and GPG keys->New SSH key, click Add SSH key.
+13. git clone url: clone files in one branch of github to local environment. 
+14. git checkout -b branch_name: by -b, we create a new branch. Checkout command redirecting us to the new branch after it is created. 
+15. git checkout branch_name: the branch already exists, we just want to redirect to it. 
+16. git log: look at all history in this repository.
+17. git add file_name: add the file mentioned, to make it prepared for uploaded to current branch in github.
+18. git commit -m "message": final commitment to upload the added file. -m stands for message, and the message after that are contents you want to tell other members about what's different in this file.
+19. git push origin master: final step to upload all added files to master branch
+20. git pull origin master: first read the changes from a remote repository, then merge it into local repository.
+21. Bash shell: nano middle.sh, head -n "$2" "$1" | tail -n "$3": first statement create and open a new file called middle.sh, second one is the code inside this file. It means that we execute 'head' command first, pick first n rows of file passed into this bash command. "$2" means value of second parameter, which is the number of rows we want to take. And "$1" is the first parameter, which is the file name. After that, pass the result into part after |: take the last n rows of result, n is the "$3", the third parameter passed in. Finally we can get all rows from "$2"+1 to "$3".
+
+AWS is useful, because we can get a more powerful computer with less costs, and is more convenient when we want to do some parallel computation. 
+Github is good because we can control different versions of codes and files clearly, by adding comment to all changes, and also roll back easily to track all changes. 
+Bash Shell can call other executeable files easily, and modify parameters passed in. For example, if we want to do simulation in python for millions of times and each iteration takes a long time, then it is good to iterate by bash than python, because bash has a better control over error messages and records of results. The whole procedure will suffer a lower risk of collapse.
+
+
