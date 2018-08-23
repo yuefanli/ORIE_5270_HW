@@ -10,6 +10,11 @@ class Tree(object):
         self.root = root
 
     def tree_print(self):
+        """
+        This function print out the binary tree
+        :return: [[str, str], [str, str]]\
+        matrix with all blanks and empty nodes filled in with '|'
+        """
         thislevel = [self.root]
         whole_tree = []
         while thislevel:
