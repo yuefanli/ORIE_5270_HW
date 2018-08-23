@@ -41,13 +41,13 @@ class Rosenbrock(object):
 if __name__ == '__main__':
     x = []
     n_1 = 20
-    x_1 = [10 for i in range(n_1)]
+    x_1 = np.array([10 for i in range(n_1)])
     x.append(x_1)
-    x_2 = [5, 2, 7, -9, 0, 12]
+    x_2 = np.array([5, 2, 7, -9, 0, 12])
     x.append(x_2)
-    x_3 = [-100 for i in range(n_1)]
+    x_3 = np.array([-100 for i in range(n_1)])
     x.append(x_3)
-    x_4 = [4, 100, 10000, 0, 20, 40]
+    x_4 = np.array([4, 100, 10000, 0, 20, 40])
     x.append(x_4)
     result_all = []
     for i in range(4):
