@@ -1,0 +1,6 @@
+[
+  "Tests/test_tree.py::TestTree::test_tree_exotic", 
+  "Tests/test_tree.py::TestTree::test_tree_full", 
+  "Tests/test_tree.py::TestTree::test_tree_one_node", 
+  "Tests/test_tree.py::TestTree::test_tree_single"
+]
