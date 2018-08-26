@@ -1,0 +1,6 @@
+[
+  "tests/test_dijkstra.py::TestBellmanFord::test_1", 
+  "tests/test_dijkstra.py::TestBellmanFord::test_2", 
+  "tests/test_dijkstra.py::TestBellmanFord::test_3", 
+  "tests/test_dijkstra.py::TestBellmanFord::test_4"
+]

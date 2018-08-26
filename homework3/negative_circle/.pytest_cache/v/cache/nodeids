@@ -1,0 +1,5 @@
+[
+  "tests/test_bellman_ford.py::TestBellmanFord::test_neg_c", 
+  "tests/test_bellman_ford.py::TestBellmanFord::test_no_c", 
+  "tests/test_bellman_ford.py::TestBellmanFord::test_pos_c"
+]

@@ -1,0 +1,6 @@
+{
+  "tests/test_dijkstra.py::TestBellmanFord::test_1": true, 
+  "tests/test_dijkstra.py::TestBellmanFord::test_2": true, 
+  "tests/test_dijkstra.py::TestBellmanFord::test_3": true, 
+  "tests/test_dijkstra.py::TestBellmanFord::test_4": true
+}
