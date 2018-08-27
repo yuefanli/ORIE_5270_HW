@@ -1,5 +1,4 @@
 cover:
-	make lint
 	make cover_tests
 
 lint: 

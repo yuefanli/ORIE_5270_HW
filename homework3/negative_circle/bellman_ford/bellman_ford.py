@@ -56,7 +56,7 @@ class Bellman_Ford(object):
             d[k] = np.inf
             pi[k] = k
 
-        negative_c = []
+        negative_c = None
         # then randomly choose starting point to go through Bellman-Ford
         for k in key:
             d[k] = 0

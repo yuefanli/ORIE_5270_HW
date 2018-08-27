@@ -42,9 +42,11 @@ class Dijkstra(object):
                     key.append(dest)
                 else:
                     pass
+        pi = {}
         d = {}
         for k in key:
             d[k] = np.inf
+            pi[k] = k
         d[self.source] = 0
         F = []
         heapq.heappush(F, (0, self.source))
@@ -62,18 +64,29 @@ class Dijkstra(object):
             # c stands for current child node, w stands for weight
             for c, w in child:
                 if (c not in curr_F) and (c not in curr_S):
-
+                    pi[c] = f[1]
                     d[c] = d[f[1]] + w
                     heapq.heappush(F, (d[c], c))
                     curr_F = list(map(lambda x: x[1], F))
+                    pi[c] = f[1]
                 else:
                     if d[f[1]] + w < d[c]:
+                        pi[c] = f[1]
                         d[c] = d[f[1]] + w
                         F = list(map(lambda x: (d[c], c) if x[1] == c else x, F))
                         heapq.heapify(F)
+                        pi[c] = f[1]
                     else:
                         pass
+        curr_node = self.destination
+        path = [curr_node]
+        last_node = pi[curr_node]
+        while curr_node != self.source and len(path)<len(key):
+            path.append(last_node)
+            curr_node = last_node
+            last_node = pi[curr_node]
+
         if self.destination in S.keys():
-            return S[self.destination]
+            return (S[self.destination], path[::-1])
         else:
-            return np.inf
+            return (np.inf, [])
