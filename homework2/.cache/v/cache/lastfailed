@@ -1,0 +1,5 @@
+{
+  "Tests/test_tree.py::TestTree::test_tree_exotic": true,
+  "Tests/test_tree.py::TestTree::test_tree_full": true,
+  "Tests/test_tree.py::TestTree::test_tree_single": true
+}
