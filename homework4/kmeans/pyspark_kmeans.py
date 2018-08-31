@@ -27,6 +27,12 @@ def point_cent_pair_pass_func(find_dists):
 
 
 def pyspark_kmeans(data_file, centroids_file, MAX_ITER=100):
+    """
+    :param data_file: txt file name str, each line is a data point
+    :param centroids_file: centroids txt file name string, each line is a centroid
+    :param MAX_ITER: the maximum iteration we accepted till stop
+    :return:
+    """
     sc = SparkContext('local[4]', 'pyspark tutorial')
     # Load the data
     data = sc.textFile(data_file).map(
@@ -46,15 +52,12 @@ def pyspark_kmeans(data_file, centroids_file, MAX_ITER=100):
         p_c_cnt = p_c_cnt.mapValues(lambda x: x[1] / x[0]).collect()
 
         centroids1 = list(map(lambda x: x[1], p_c_cnt))
-    out_put = 'centroids_final.txt'
+    out_put = './centroids_final.txt'
     f = open(out_put, 'w')
     for items in centroids1:
         items = str(list(items)).replace(',', ' ').replace('[', '').replace(']', '') + '\n'
         f.write(items)
     f.close()
 
-    # return centroids1
-
-
 if __name__ == "__main__":
-    pyspark_kmeans('data.txt', 'c1.txt')
+    pyspark_kmeans('./data.txt', './c1.txt')
